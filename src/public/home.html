@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Shortener</title>
+
+    <script>
+        function shortlink() {
+            // Get the input value
+            let input = document.querySelector('input').value;
+            // Send the value to the server
+            fetch('/short', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ url: input })
+            })
+            .then(res => res.json())
+            .then(data => {
+                // Get the shortlink
+                let shortlink = data.shortUrl;
+                // Display the shortlink
+                document.getElementById('textUrl').value = shortlink;
+            })
+        }
+    </script>
+    <style>
+        h1 {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        input {
+            width: 100%;
+            height: 50px;
+            font-size: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 0 10px;
+        }
+        .child {
+            /* Center the child vertically and horizzontally */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        button {
+            width: 100px;
+            height: 50px;
+            font-size: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 0 10px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="child">
+        <input type="text" id="textUrl">
+        <button onclick="shortlink()">Send</button>
+    </div>
+</body>
+</html>
