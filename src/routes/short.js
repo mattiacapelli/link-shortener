@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "../util/dbconnect.js";
 import validateUrl from "../util/validateUrl.js";
 import shortid from "shortid";
+import dotenv from "dotenv";
 
 import Url from "../model/url.js";
 
@@ -17,7 +18,7 @@ app.post("/short", (req, res) => {
     }
 
     const urlId = shortid.generate();
-    const shortUrl = `${req.protocol}://${req.hostname}/${urlId}`;
+    const shortUrl = `${req.protocol}://${req.hostname}:${process.env.PORT}/${urlId}`;
 
     const newUrl = new Url({
         urlId,
