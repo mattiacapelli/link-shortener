@@ -42,6 +42,42 @@ To shorten a link, open the website on the port you specified in the `.env` file
 
 To access the original link, just open the shortened link in your browser.
 
+## Technical Details
+
+### Routes
+
+#### GET | `/`
+
+-   Renders the home page
+
+#### GET | `/:shortid`
+
+| Parameter | Type   | Description |
+| :-------- | :----- | :---------- |
+| `shortid` | string | The shortened link |
+
+#### Returns
+
+-   `200` - If the link is found and it redirects to the original link
+
+#### POST | `/short`
+
+#### Body Parameters
+
+| Parameter | Type   | Description |
+| :-------- | :----- | :---------- |
+| `link`    | string | The original link |
+
+#### Returns
+
+-   `200` - If the link is successfully shortened and the shortened link
+-   `400` - If the link is not valid
+
+### Models
+
+-   `Link` - Stores the original link and the shortened link
+
+
 ## 📜 License
 
 [MIT](https://choosealicense.com/licenses/mit/)
