@@ -77,16 +77,20 @@ To access the original link, just open the shortened link in your browser.
 
 -   `Link` - Stores the original link and the shortened link
 
+#### Link Model
+
+| Field         | Type   | Description |
+| :------------ | :----- | :---------- |
+| `urlId`       | string | Shortened URL id |
+| `originalUrl` | string | Original URL |
+| `shortUrl`    | string | Shortened URL |
+| `clicks`      | number | Number of clicks |
+| `date`        | date   | Date of creation |
+| `ownerip`     | string | IP of the creator |
 
 ## 📜 License
 
-[MIT](https://choosealicense.com/licenses/mit/)
-
-## 🫶 Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
+[MIT](https://choosealicense.com/licenses/mit/) © [Mattia Capelli](https://mattiacapelli.it)
 
 ## 🔰 Authors
 
