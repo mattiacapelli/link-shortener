@@ -127,7 +127,7 @@ To access the original link, just open the shortened link in your browser.
 | `ownerip`     | string | IP of the creator |
 
 
-#### 🌐 Connection to the database
+### 🌐 Connection to the database
 
 The connection to the database is made in the `./src/util/dbconnect.js` file.
 
@@ -141,7 +141,7 @@ The connection to the database is made in the `./src/util/dbconnect.js` file.
         });
 ```
 
-####
+###
 
 This is the github repository link:
 
