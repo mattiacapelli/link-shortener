@@ -52,6 +52,10 @@ To access the original link, just open the shortened link in your browser.
 
 #### ⬇️ GET | `/:shortid`
 
+```javascript
+    app.post("/:linkid", (req, res) //Line 9 - ./src/routes/resolver.js
+```
+
 | Parameter | Type   | Description |
 | :-------- | :----- | :---------- |
 | `shortid` | string | The shortened link |
@@ -61,6 +65,10 @@ To access the original link, just open the shortened link in your browser.
 -   `200` - If the link is found and it redirects to the original link
 
 #### ⬆️ POST | `/short`
+
+```javascript
+    app.post("/short", (req, res) //Line 11 - ./src/routes/short.js
+```
 
 #### Body Parameters
 
@@ -78,6 +86,36 @@ To access the original link, just open the shortened link in your browser.
 -   `Link` - Stores the original link and the shortened link
 
 #### Link Model
+
+```javascript
+    const UrlSchema = new mongoose.Schema({
+    urlId: {
+        type: String,
+        required: true,
+    },
+    origUrl: {
+        type: String,
+        required: true,
+    },
+    shortUrl: {
+        type: String,
+        required: true,
+    },
+    clicks: {
+        type: Number,
+        required: true,
+        default: 0,
+    },
+    date: {
+        type: String,
+        default: Date.now,
+    },
+    ownerip: {
+        type: String,
+        required: true,
+    },
+    });
+```
 
 | Field         | Type   | Description |
 | :------------ | :----- | :---------- |
