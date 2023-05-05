@@ -2,7 +2,7 @@
 
 This is a simple link shortener that I made for my own use. It's not very fancy, but it works.
 
-## Technologies
+## 📖 Technologies
 
 -   [Node.js](https://nodejs.org/en/)
 -   [Express](https://expressjs.com/)
@@ -42,15 +42,15 @@ To shorten a link, open the website on the port you specified in the `.env` file
 
 To access the original link, just open the shortened link in your browser.
 
-## Technical Details
+## 🔧 Technical Details
 
-### Routes
+### 🐝 Routes
 
-#### GET | `/`
+#### ⬇️ GET | `/`
 
 -   Renders the home page
 
-#### GET | `/:shortid`
+#### ⬇️ GET | `/:shortid`
 
 | Parameter | Type   | Description |
 | :-------- | :----- | :---------- |
@@ -60,7 +60,7 @@ To access the original link, just open the shortened link in your browser.
 
 -   `200` - If the link is found and it redirects to the original link
 
-#### POST | `/short`
+#### ⬆️ POST | `/short`
 
 #### Body Parameters
 
@@ -73,7 +73,7 @@ To access the original link, just open the shortened link in your browser.
 -   `200` - If the link is successfully shortened and the shortened link
 -   `400` - If the link is not valid
 
-### Models
+### ✨ Models
 
 -   `Link` - Stores the original link and the shortened link
 
@@ -87,11 +87,3 @@ To access the original link, just open the shortened link in your browser.
 | `clicks`      | number | Number of clicks |
 | `date`        | date   | Date of creation |
 | `ownerip`     | string | IP of the creator |
-
-## 📜 License
-
-[MIT](https://choosealicense.com/licenses/mit/) © [Mattia Capelli](https://mattiacapelli.it)
-
-## 🔰 Authors
-
--   [Mattia Capelli](https://mattiacapelli.it)
