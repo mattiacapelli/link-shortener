@@ -125,3 +125,26 @@ To access the original link, just open the shortened link in your browser.
 | `clicks`      | number | Number of clicks |
 | `date`        | date   | Date of creation |
 | `ownerip`     | string | IP of the creator |
+
+
+#### 🌐 Connection to the database
+
+The connection to the database is made in the `./src/util/dbconnect.js` file.
+
+```javascript
+    mongoose.connect(process.env.ATLAS_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+        .then(() => {
+            console.log('Connected to database');
+        })
+        .catch((error) => {
+            console.log('Error connecting to database: ', error.message);
+        });
+```
+
+####
+
+This is the github repository link:
+
+```bash
+https://github.com/mattiacapelli/link-shortener.git
+```
