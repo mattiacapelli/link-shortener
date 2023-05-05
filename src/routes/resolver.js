@@ -1,6 +1,5 @@
 import express from "express";
 import mongoose from "../util/dbconnect.js";
-import validateUrl from "../util/validateUrl.js";
 
 import Url from "../model/url.js";
 
@@ -19,6 +18,14 @@ app.get("/:linkid", async (req, res) => {
         return res.status(400).json({
             message: 'Link does not exist'
             });
+    }
+    //sum 1 to clicks
+    findlink.clicks++;
+    try {
+        await findlink.save();
+    } catch (err) {
+        console.log(err);
+        return res.status(500).json({ error: "Server error" });
     }
 
     console.log(findlink);

@@ -1,8 +1,6 @@
 import express from "express";
-import mongoose from "../util/dbconnect.js";
 import validateUrl from "../util/validateUrl.js";
 import shortid from "shortid";
-import dotenv from "dotenv";
 
 import Url from "../model/url.js";
 
@@ -10,6 +8,12 @@ const app = express();
 
 app.post("/short", (req, res) => {
     const url = req.body.url || req.query.url;
+    var urlId = shortid.generate();
+    
+    if (req.body.identifier || req.query.identifier) {
+        urlId = req.body.identifier || req.query.identifier;   
+    }
+
     if (!url) {
         return res.status(400).json({ error: "No URL provided" });
     }
@@ -17,7 +21,6 @@ app.post("/short", (req, res) => {
         return res.status(400).json({ error: "Invalid URL" });
     }
 
-    const urlId = shortid.generate();
     const shortUrl = `${req.protocol}://${req.hostname}:${process.env.PORT}/${urlId}`;
 
     const newUrl = new Url({
